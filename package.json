@@ -1,0 +1,20 @@
+{
+  "name": "brian-drive",
+  "version": "1.0.0",
+  "description": "Synology Container service that watches a Google Drive folder and processes dropped files by rule. First use case: parse blood lab PDFs and store results in brian-mem.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "webhook": "node src/webhook.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.52.0",
+    "googleapis": "^144.0.0",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}

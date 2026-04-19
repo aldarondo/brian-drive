@@ -1,0 +1,20 @@
+services:
+  brian-drive:
+    image: node:20-alpine
+    container_name: brian-drive
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /volume1/docker/brian-drive/google-sa.json:/run/secrets/google-sa.json:ro
+    environment:
+      - GOOGLE_SERVICE_ACCOUNT_JSON=/run/secrets/google-sa.json
+      - WATCH_FOLDER_ID=${WATCH_FOLDER_ID}
+      - POLL_INTERVAL_SECONDS=${POLL_INTERVAL_SECONDS:-60}
+      - BRIAN_MEM_URL=${BRIAN_MEM_URL:-http://brian-mcp:3001}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - WEBHOOK_URL=${WEBHOOK_URL:-}
+      - WEBHOOK_PORT=${WEBHOOK_PORT:-8776}
+    command: node src/index.js
+    network_mode: host
