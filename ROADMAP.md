@@ -23,4 +23,5 @@
 - [x] 2026-04-19 — Scaffolded: Drive watcher (Service Account auth, file polling, download), lab-results PDF processor, memory record conversion, unit tests
 
 ## 🚫 Blocked
+- ❌ [docker-monitor:no-ghcr-image] Container `brian-drive` uses `node:20-alpine` — migrate to `ghcr.io/aldarondo/...` with a GitHub Actions build-push workflow — 2026-04-20 16:23 UTC
 <!-- log blockers here -->
