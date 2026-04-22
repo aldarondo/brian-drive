@@ -13,6 +13,10 @@
 - [x] `[Code]` 2026-04-19 — Files deployed to NAS at `/volume1/docker/brian-drive/`; blocked from starting until `google-sa.json` placed there by `[Human]`
 - [ ] `[Code]` Verify end-to-end: drop a PDF in the Drive folder, confirm brian-mem receives the records
 
+### Build & Infrastructure
+- [ ] `[Code]` Add GHCR build-push workflow — migrate container from `node:20-alpine` to a versioned GHCR image (`ghcr.io/aldarondo/...`) with GitHub Actions auto-deploy
+- [ ] `[Code]` Add weekly scheduled rebuild — GitHub Actions `schedule: cron` to repull and push a fresh image every week, picking up base-image security patches
+
 ### Enhancements
 - [x] `[Code]` 2026-04-19 — Add processor for `.heic`/`.jpg`/`.png` image files — Claude Vision OCR via `@anthropic-ai/sdk`; requires `ANTHROPIC_API_KEY` env var; skips gracefully if not set
 - [x] `[Code]` 2026-04-19 — Add processor for plain-text grocery or supplement lists (`src/processors/text-lists.js`)
