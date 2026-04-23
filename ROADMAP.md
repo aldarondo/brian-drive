@@ -27,6 +27,6 @@
 - [x] 2026-04-19 — Scaffolded: Drive watcher (Service Account auth, file polling, download), lab-results PDF processor, memory record conversion, unit tests
 
 ## 🚫 Blocked
-- ❌ [docker-monitor:container-stopped] Container `brian-drive` is not running on the NAS — check `docker logs brian-drive` and restart — 2026-04-22 08:00 UTC
+- ❌ [docker-monitor:container-stopped] Container `brian-drive` is not running on the NAS — check `docker logs brian-drive` and restart — 2026-04-23 05:08 UTC
 - ❌ [docker-monitor:no-ghcr-image] Container `brian-drive` uses `node:20-alpine` — migrate to `ghcr.io/aldarondo/...` with a GitHub Actions build-push workflow — 2026-04-20 16:57 UTC
 <!-- log blockers here -->
