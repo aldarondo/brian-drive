@@ -28,6 +28,6 @@
 
 ## 🚫 Blocked
 - ❌ [docker-monitor:deploy-failed] GitHub Actions deploy failed (run #24853736483) — https://github.com/aldarondo/brian-drive/actions/runs/24853736483 — 2026-04-23 21:29 UTC
-- ❌ [docker-monitor:container-stopped] Container `brian-drive` is not running on the NAS — check `docker logs brian-drive` and restart — 2026-04-23 08:42 UTC
+- ❌ [docker-monitor:container-stopped] Container `brian-drive` is not running on the NAS — check `docker logs brian-drive` and restart — 2026-04-23 21:31 UTC
 - ❌ [docker-monitor:no-ghcr-image] Container `brian-drive` uses `node:20-alpine` — migrate to `ghcr.io/aldarondo/...` with a GitHub Actions build-push workflow — 2026-04-20 16:57 UTC
 <!-- log blockers here -->
