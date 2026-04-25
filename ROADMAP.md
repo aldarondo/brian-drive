@@ -29,5 +29,5 @@
 - [x] 2026-04-19 — Scaffolded: Drive watcher (Service Account auth, file polling, download), lab-results PDF processor, memory record conversion, unit tests
 
 ## 🚫 Blocked
-- ❌ [docker-monitor:container-stopped] Container `brian-drive` is not running on NAS — waiting on google-sa.json and WATCH_FOLDER_ID from `[Human]` before it can start
+- ❌ [docker-monitor:container-stopped] Container `brian-drive` is not running on the NAS — check `docker logs brian-drive` and restart — 2026-04-25 08:00 UTC
 <!-- log blockers here -->
