@@ -7,7 +7,6 @@ services:
     volumes:
       - /volume1/docker/brian-drive/google-sa.json:/run/secrets/google-sa.json:ro
       - /volume1/docker/brian-drive/logs:/app/logs
-    command: sh -c "node src/index.js 2>&1 | tee -a /app/logs/app.log"
     environment:
       - GOOGLE_SERVICE_ACCOUNT_JSON=/run/secrets/google-sa.json
       - WATCH_FOLDER_ID=${WATCH_FOLDER_ID}

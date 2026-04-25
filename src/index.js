@@ -6,6 +6,7 @@
  * Runs as a persistent process (not an MCP server — no stdio needed).
  */
 
+import './logger.js';
 import { getDriveClient, listNewFiles, downloadFile } from './drive.js';
 import { extractLabResults, toMemoryRecords } from './processors/lab-results.js';
 import { extractTextList, textListToMemoryRecords } from './processors/text-lists.js';
