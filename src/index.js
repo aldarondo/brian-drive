@@ -111,6 +111,10 @@ async function processFile(drive, file) {
 async function poll() {
   try {
     const drive = getDriveClient();
+    if (!drive) {
+      console.warn('[brian-drive] No valid service account credentials — set GOOGLE_SERVICE_ACCOUNT_JSON or GOOGLE_SERVICE_ACCOUNT_BASE64. Skipping poll.');
+      return;
+    }
     const files = await listNewFiles(drive, FOLDER_ID, lastCheckedAt);
     lastCheckedAt = new Date().toISOString();
     saveState({ lastCheckedAt });

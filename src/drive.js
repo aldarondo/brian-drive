@@ -12,12 +12,16 @@ function getAuth() {
 
   let credentials;
   if (jsonPath && fs.existsSync(jsonPath)) {
-    credentials = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    const raw = fs.readFileSync(jsonPath, 'utf8').trim();
+    if (!raw || raw === '{}') return null;
+    credentials = JSON.parse(raw);
   } else if (base64) {
     credentials = JSON.parse(Buffer.from(base64, 'base64').toString('utf8'));
   } else {
-    throw new Error('Set GOOGLE_SERVICE_ACCOUNT_JSON or GOOGLE_SERVICE_ACCOUNT_BASE64');
+    return null;
   }
+
+  if (!credentials.client_email) return null;
 
   return new google.auth.GoogleAuth({
     credentials,
@@ -27,6 +31,7 @@ function getAuth() {
 
 export function getDriveClient() {
   const auth = getAuth();
+  if (!auth) return null;
   return google.drive({ version: 'v3', auth });
 }
 
