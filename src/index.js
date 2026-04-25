@@ -24,7 +24,9 @@ const POLL_INTERVAL  = parseInt(process.env.POLL_INTERVAL_SECONDS || '60', 10) *
 const BRIAN_MEM_URL  = process.env.BRIAN_MEM_URL || 'http://localhost:3001';
 const STATE_FILE     = join(__dirname, '..', 'data', 'state.json');
 
-if (!FOLDER_ID) throw new Error('WATCH_FOLDER_ID is required');
+if (!FOLDER_ID) {
+  console.warn('[brian-drive] WATCH_FOLDER_ID is not set — set it in .env and restart. Polling will be skipped until configured.');
+}
 
 function loadState() {
   try {
@@ -110,6 +112,10 @@ async function processFile(drive, file) {
 
 async function poll() {
   try {
+    if (!FOLDER_ID) {
+      console.warn('[brian-drive] WATCH_FOLDER_ID not set — skipping poll.');
+      return;
+    }
     const drive = getDriveClient();
     if (!drive) {
       console.warn('[brian-drive] No valid service account credentials — set GOOGLE_SERVICE_ACCOUNT_JSON or GOOGLE_SERVICE_ACCOUNT_BASE64. Skipping poll.');
